@@ -1,0 +1,22 @@
+{
+  "name": "setschedule-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyh014/setSchedule-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyh014/setSchedule-api/issues"
+  },
+  "homepage": "https://github.com/hyh014/setSchedule-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

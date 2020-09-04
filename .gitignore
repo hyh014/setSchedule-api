@@ -1,0 +1,7 @@
+.env
+node_modules/
+public/products/*
+tmp/
+.DS_Store
+credentials.json
+token.js
