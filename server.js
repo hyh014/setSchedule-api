@@ -4,21 +4,11 @@ const cors = require('cors');
 
 const dotenv = require('dotenv');
 dotenv.config();
-// const rateLimit = require('express-rate-limit');
-// const limiter = rateLimit({
-//     windowMs: 15 * 60 * 1000, // 15 minutes
-//     max: 150, // limit each IP to 150 requests per windowMs
-//     statusCode: 200,
-//     message: {
-//         status: 429,
-//         error: 'You are making too many requests. Please try again in 20 minutes.'
-//     }
-// });
 
 const app = express();
 app.use(express.json());
 app.use(cors());
-// app.use(limiter); // rate limiter
+
 app.post('/processQuery', (req, res) => {
 
     axios({
@@ -27,13 +17,13 @@ app.post('/processQuery', (req, res) => {
     }).then(async (rest) => {
         let TM = await getTM(req);
         let wiki = await getWiki(req);
-        console.log(wiki);
+
         let data = {
             ...rest.data,
             ...TM.data._embedded,
             wiki:wiki
         }
-        // console.log(all.data._embedded);
+
         res.status(200).send(data);
     }).catch(err => {
         console.log(err);
@@ -78,8 +68,7 @@ function getWikipedia(query) {
     }).catch(err => {
         return err;
     })
-    //   url:'http://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=pizza&limit=1&namespace=0'
-    //   url:'https://en.wikipedia.org/w/api.php?origin=*&action=parse&format=json&page=house&prop=wikitext&section=0&disabletoc=1'
+
 
 }
 
